@@ -1,10 +1,13 @@
 ---
 import Layout from "../layouts/BasicLayout.astro";
-import Counter from "../components/Counter.jsx";
+import CounterReact from "../components/Counter.jsx";
+import CounterVue from "../components/Counter.vue";
+import Counter from "../components/Counter.astro";
 ---
 
 <Layout title="POC AstroJS">
   <p>Astro poc</p>
-
+  <CounterReact client:load />
+  <CounterVue client:load />
   <Counter client:load />
 </Layout>

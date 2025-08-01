@@ -1,0 +1,28 @@
+---
+
+---
+
+<div style="display: flex; gap: 20px">
+  Astro Counter Component
+  <button id="counter-button">Clicked 0 times</button>
+</div>
+
+<script>
+  import { counter } from "../stores/counterStore";
+
+  const button = document.getElementById("counter-button");
+
+  if (button) {
+    function updateText(value) {
+      if (!button) return;
+      button.textContent = `Clicked ${value} times`;
+    }
+
+    updateText(counter.get());
+
+    button.addEventListener("click", () => {
+      counter.set(counter.get() + 1);
+      updateText(counter.get());
+    });
+  }
+</script>
