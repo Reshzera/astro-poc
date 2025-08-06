@@ -1,0 +1,22 @@
+---
+import Counter from "../../components/Counter.astro";
+import CounterVue from "../../components/Counter.vue";
+import CounterReact from "../../components/Counter.jsx";
+import Layout from "../../layouts/BasicLayout.astro";
+import { counter } from "../../stores/counterStore";
+
+//Enable SSR for this page
+export const prerender = false;
+Astro.cookies.set("counter", "10");
+const counterCookie = Astro.cookies.get("counter");
+const counterValue = counterCookie?.number() || 0;
+counter.set(counterValue);
+---
+
+<Layout title="POC AstroJS">
+  <p>Astro poc</p>
+  <h1>cookie Value {counterValue}</h1>
+  <CounterReact client:load />
+  <CounterVue client:load />
+  <Counter client:load />
+</Layout>

@@ -13,7 +13,7 @@
   const button = document.getElementById("counter-button");
 
   if (button) {
-    function updateText(value) {
+    function updateText(value: number) {
       if (!button) return;
       button.textContent = `Clicked ${value} times`;
     }
