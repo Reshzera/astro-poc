@@ -3,6 +3,7 @@ import Layout from "../layouts/BasicLayout.astro";
 import CounterReact from "../components/Counter.jsx";
 import CounterVue from "../components/Counter.vue";
 import Counter from "../components/Counter.astro";
+import Avatar from "../components/Avatar.astro";
 ---
 
 <Layout title="POC AstroJS">
@@ -10,4 +11,5 @@ import Counter from "../components/Counter.astro";
   <CounterReact client:load />
   <CounterVue client:load />
   <Counter client:load />
+  <Avatar server:defer />
 </Layout>

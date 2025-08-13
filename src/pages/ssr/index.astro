@@ -4,10 +4,12 @@ import CounterVue from "../../components/Counter.vue";
 import CounterReact from "../../components/Counter.jsx";
 import Layout from "../../layouts/BasicLayout.astro";
 import { counter } from "../../stores/counterStore";
+import Avatar from "../../components/Avatar.astro";
 
 //Enable SSR for this page
 export const prerender = false;
 Astro.cookies.set("counter", "10");
+Astro.cookies.set("session", "10");
 const counterCookie = Astro.cookies.get("counter");
 const counterValue = counterCookie?.number() || 0;
 counter.set(counterValue);
@@ -19,4 +21,5 @@ counter.set(counterValue);
   <CounterReact client:load />
   <CounterVue client:load />
   <Counter client:load />
+  <Avatar server:defer />
 </Layout>
